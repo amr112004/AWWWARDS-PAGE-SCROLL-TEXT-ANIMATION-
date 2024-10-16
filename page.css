@@ -1,0 +1,179 @@
+:root {
+    --primary: #0c0c0c;
+    --secondary: #f4f4f4;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Lennit CSS settings */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+html {
+    font-size: calc(100vw / 1920 * 10);
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
+    color: var(--secondary);
+}
+
+h3 {
+    font-size: 8rem;
+    text-transform: uppercase;
+}
+
+p,
+li,
+span {
+    font-size: 2.4rem;
+}
+
+li {
+    list-style: none;
+}
+
+/* Nav */
+.nav {
+    position: fixed;
+    left: 0;
+    top: 0; /* Fixed typo from 'o' to '0' */
+    width: 100%;
+    z-index: 999;
+}
+
+.nav-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 2fr;
+    grid-template-rows: 1fr;
+    padding: 6.4rem;
+}
+
+.nav-item:nth-child(1) {
+    grid-area: 1/1/2/2;
+}
+
+.nav-item:nth-child(2) {
+    grid-area: 1/2/2/3;
+}
+
+.nav-item:nth-child(3) {
+    grid-area: 1/3/2/4;
+}
+
+.nav-item:nth-child(4) {
+    grid-area: 1/4/2/5;
+    display: inline-flex;
+    width: fit-content;
+    justify-self: end;
+    gap: 4rem;
+}
+
+.nav span {
+    display: block;
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-wrapper {
+    padding: 6.4rem;
+}
+
+.hero-paragraph {
+    padding-top: 80vh;
+    padding-left: 80rem;
+    padding-bottom: 40rem;
+}
+
+/* Fixed missing comma in selector */
+.hero-paragraph-text,
+.hero-paragraph-text span {
+    font-size: 8rem;
+    line-height: 1.2;
+}
+
+.hero-paragraph-text::before {
+    content: 'Info';
+    border: 1px solid var(--secondary);
+    border-radius: 20rem;
+    padding: 0.4rem 1.2rem;
+    margin-right: 1.6rem;
+    font-size: 4rem;
+}
+
+.hero-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: calc(100vw / 768 * 10);
+    }
+
+    h3 {
+        font-size: 2.4rem;
+    }
+
+    p,
+    li,
+    span {
+        font-size: 2.4rem;
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-item:nth-child(3),
+    .nav-item:nth-child(4) {
+        display: none;
+    }
+
+    .hero-paragraph {
+        padding-left: 0;
+    }
+
+    /* Adjusted height for responsiveness */
+    .hero-background-image {
+        height: auto; /* Changed for better scaling on small screens */
+    }
+}
